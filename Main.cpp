@@ -13,10 +13,9 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
 }
 
 int main() {
-  cout << "Hello OpenGL" << '\n';
   if (!glfwInit()) {
-    cout << "Failed to initialize GLFW.\n";
-    return -1;
+    cout << "Falha em inicializar o GLFW.\n";
+    return 1;
   }
 
   glfwWindowHint(GLFW_SAMPLES, 4);
@@ -27,13 +26,13 @@ int main() {
   GLFWwindow *window;
   window = glfwCreateWindow(800, 600, "C++ OpenGL on Windows", NULL, NULL);
   if (window == NULL) {
-    cout << "Failed to open GLFW window.\n";
+    cout << "Falha em abrir a janela.\n";
     return 1;
   }
   glfwMakeContextCurrent(window);
 
   if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-    cout << "Failed to initialize GLAD.\n";
+    cout << "Falha em inicializar o GLAD.\n";
     return 1;
   }
 
@@ -75,7 +74,7 @@ int main() {
     out vec4 FragColor;
 
     void main() {
-    FragColor = vec4(1.0, 0.5, 0.2, 1.0);  // Laranja
+    FragColor = vec4(1.0, 0.5, 0.2, 1.0);  
     }
   )";
 
